@@ -1,0 +1,40 @@
+{
+  "name": "freedom-app",
+  "private": true,
+  "description": "Freedom Builders mobile app template: Expo (iOS/Android) + React web + Cloudflare Workers API (Hono + D1).",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,magenta \"npm run dev -w @app/api\" \"npm run dev -w @app/web\"",
+    "dev:api": "npm run dev -w @app/api",
+    "dev:web": "npm run dev -w @app/web",
+    "mobile": "npm run start -w @app/mobile",
+    "build": "npm run build -w @app/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint -w @app/mobile",
+    "check": "npm run typecheck && npm run build",
+    "db:migrate:local": "npm run db:migrate:local -w @app/api",
+    "db:migrate:remote": "npm run db:migrate:remote -w @app/api",
+    "deploy": "npm run build && npm run deploy -w @app/api",
+    "cf:setup": "node scripts/cloudflare-setup.mjs",
+    "init:project": "node scripts/init-project.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "build:ios": "npm run build:ios -w @app/mobile",
+    "build:android": "npm run build:android -w @app/mobile",
+    "build:apk": "npm run build:apk -w @app/mobile",
+    "submit:ios": "npm run submit:ios -w @app/mobile",
+    "submit:android": "npm run submit:android -w @app/mobile"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  },
+  "overrides": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}

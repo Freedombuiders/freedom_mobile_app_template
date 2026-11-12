@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* Design tokens. Replace with the values from your design (docs/design/). Use as bg-brand, text-brand-ink, … */
+@theme {
+  --color-brand: #2563eb;
+  --color-brand-dark: #1d4ed8;
+  --color-brand-soft: #eff6ff;
+  --color-ink: #0f172a;
+  --color-muted: #64748b;
+  --color-line: #e2e8f0;
+  --color-danger: #dc2626;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html,
+body {
+  @apply bg-slate-50 text-ink antialiased;
+}

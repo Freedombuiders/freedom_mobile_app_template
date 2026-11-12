@@ -1,0 +1,4 @@
+# Copy to .dev.vars (git-ignored) for local secrets used by `npm run dev`.
+# Production secrets: `npx wrangler secret put NAME` inside apps/api.
+APP_ENV=development
+# RESEND_API_KEY=re_xxx
